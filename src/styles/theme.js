@@ -9,6 +9,7 @@ export default {
 
     FONT_PLCHDR: "#948F99",
     FONT_GRAY: "#CAC4CF",
+    FONT_BTN: "#312E38",
 
     PINK: "#FF859B",
     WHITE: "#F4EDE8"
