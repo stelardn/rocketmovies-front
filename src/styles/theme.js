@@ -1,0 +1,16 @@
+export default {
+  COLORS: {
+    BACKGROUND_GEN: "#1C1B1E",
+    BACKGROUND_INP: "#262529",
+    BACKGROUND_MOVIES: "#FF859B0D",
+    BACKGROUND_BLACK: "#0D0C0F",
+
+    BORDER_GRAY: "#3E3B47",
+
+    FONT_PLCHDR: "#948F99",
+    FONT_GRAY: "#CAC4CF",
+
+    PINK: "#FF859B",
+    WHITE: "#F4EDE8"
+  }
+}
