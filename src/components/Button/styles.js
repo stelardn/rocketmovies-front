@@ -11,5 +11,15 @@ export const Container = styled.button`
   font-size: 16px;
   color: ${({ theme }) => theme.COLORS.FONT_BTN};
 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   cursor: pointer;
+
+  > svg {
+    padding-right: 8px;
+    height: 20px;
+    width: 20px;
+  }
 `
