@@ -6,8 +6,9 @@ export const Container = styled.div`
   > header {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 
-    margin: 50px 123px 40px;
+    margin: 30px 123px 20px;
 
     button {
       width: 200px;
@@ -15,31 +16,7 @@ export const Container = styled.div`
   } 
 
   > main {
-    max-height: 716px;
-    overflow-y: scroll;
-  }
-`
-export const MovieNote = styled.div`
-  margin: 24px 123px;
-  padding: 32px;
-
-  height: 222px;
-
-  background-color: ${({ theme }) => theme.COLORS.BACKGROUND_MOVIES};
-
-  h3 {
-    font-size: 24px;
-    font-weight: 700;
-    margin-bottom: 8px;
-  }
-
-  p {
-    font-family: 'Roboto', sans-serif;
-    font-size: 16px;
-    line-height: 19px;
-    color: ${({ theme }) => theme.COLORS.FONT_PLCHDR};
-
-    height: 52px;
-    overflow: hidden;
+    max-height: 762px;
+    overflow-y: auto;
   }
 `
