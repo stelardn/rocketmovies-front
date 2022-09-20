@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  margin: 24px 123px;
   padding: 32px;
   height: 222px;
   border-radius: 16px;
+  margin-bottom: 24px;
   
   background-color: ${({ theme }) => theme.COLORS.BACKGROUND_MOVIES};
 
