@@ -17,6 +17,10 @@ export const Container = styled.button`
 
   cursor: pointer;
 
+  &:hover {
+    filter: brightness(1.1);
+  }
+
   > svg {
     padding-right: 8px;
     height: 20px;
