@@ -37,7 +37,7 @@ export const Container = styled.div`
     > .list-scroll {
       overflow-y: scroll;
       max-height: 469px;
-      margin: 24px 123px;
+      margin: 24px 123px 0;
       
       padding-right: 8px;
 
