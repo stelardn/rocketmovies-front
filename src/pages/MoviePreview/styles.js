@@ -15,7 +15,7 @@ export const Container = styled.div`
   }
   
   > main {
-    margin: 24px 123px 0;
+    margin: 24px 123px;
     grid-area: content;
 
     padding-right: 12px;
