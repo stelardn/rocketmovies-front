@@ -10,7 +10,7 @@ export function Profile() {
   return (
     <Container>
       <header>
-        <TextButton title="Voltar" icon={FiArrowLeft} />
+        <TextButton title="Voltar" icon={FiArrowLeft} to='/' />
       </header>
       <Avatar>
         <img src="https://github.com/stelardn.png" alt="Imagem do usuário" />
