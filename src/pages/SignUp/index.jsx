@@ -27,7 +27,8 @@ export function SignUp() {
         <Button title="Cadastrar" />
         <TextButton
           icon={FiArrowLeft}
-          title="Voltar para o login" />
+          title="Voltar para o login"
+          to="/" />
       </Form>
       <Background />
     </Container>
