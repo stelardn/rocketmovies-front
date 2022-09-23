@@ -25,7 +25,7 @@ export function CreateMovie() {
           <TextArea placeholder="Observações" rows={6} />
         </form>
         <footer>
-          <p>Marcadores</p>
+          <h3>Marcadores</h3>
           <div className="tags">
             <TagItem value="React" />
             <TagItem placeholder="Novo marcador" isNew />

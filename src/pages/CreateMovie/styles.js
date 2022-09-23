@@ -27,9 +27,11 @@ export const Container = styled.div`
 
     margin-top: 40px;
 
-    p {
+    h3 {
       font-size: 20px;
       color: ${({ theme }) => theme.COLORS.FONT_PLCHDR};
+      font-weight: 400;
+      margin-bottom: 24px;
     }
 
     .tags {
