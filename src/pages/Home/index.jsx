@@ -15,7 +15,7 @@ export function Home() {
         <Header />
         <header>
           <h2>Meus filmes</h2>
-          <Button title="Adicionar filme" icon={FiPlus} />
+          <Button title="Adicionar filme" icon={FiPlus} to="/create" />
         </header>
       </div>
       <main>

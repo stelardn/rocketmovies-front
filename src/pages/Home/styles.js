@@ -25,7 +25,7 @@ export const Container = styled.div`
 
       margin: 20px 123px 20px;
 
-      button {
+      a {
         width: 200px;
       }
     }
