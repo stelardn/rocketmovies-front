@@ -1,7 +1,10 @@
 import styled from "styled-components";
 
-export const Container = styled.button`
+import { Link } from "react-router-dom";
+
+export const Container = styled(Link)`
   background: none;
+  text-decoration: none;
 
   cursor: pointer;
 
@@ -10,6 +13,7 @@ export const Container = styled.button`
 
   display: flex;
   align-items: center;
+  justify-content: left;
 `
 
 export const Icon = styled.div`
