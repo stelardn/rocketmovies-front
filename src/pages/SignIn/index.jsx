@@ -22,7 +22,7 @@ export function SignIn() {
           type="password"
         />
         <Button title="Entrar" />
-        <TextButton title="Criar uma conta" />
+        <TextButton title="Criar uma conta" to="/register" />
       </Form>
       <Background />
     </Container>
