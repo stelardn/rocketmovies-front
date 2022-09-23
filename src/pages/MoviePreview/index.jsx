@@ -13,7 +13,7 @@ export function MoviePreview() {
     <Container>
       <Header />
       <main>
-        <TextButton icon={FiArrowLeft} title="Voltar" />
+        <TextButton icon={FiArrowLeft} title="Voltar" to='/' />
         <div className="title">
           <h1>Interestelar</h1>
           <Rating rating={4} />
