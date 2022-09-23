@@ -17,6 +17,7 @@ export const Form = styled.form`
 
   max-width: 340px;
   justify-self: center;
+  padding: 0 8px;
 
   > h1 {
     color: ${({ theme }) => theme.COLORS.PINK};
