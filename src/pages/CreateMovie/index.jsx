@@ -15,7 +15,7 @@ export function CreateMovie() {
     <Container>
       <Header />
       <main>
-        <TextButton title="Voltar" icon={FiArrowLeft} />
+        <TextButton title="Voltar" icon={FiArrowLeft} to='/' />
         <h2>Novo filme</h2>
         <form>
           <div className="first-line">

@@ -49,7 +49,7 @@ export const Container = styled.div`
       display: flex;
       gap: 40px;
 
-      > button:first-of-type {
+      > a:first-of-type {
         background-color: ${({ theme }) => theme.COLORS.BACKGROUND_BLACK};
         color: ${({ theme }) => theme.COLORS.PINK};
       }
