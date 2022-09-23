@@ -10,8 +10,11 @@ export const Container = styled.div`
   justify-content: space-between;
   gap: 64px;
 
-  > h2 {
+  > a {
     color: ${({ theme }) => theme.COLORS.PINK};
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: 700;
   }
 `
 export const Avatar = styled.div`
@@ -24,9 +27,12 @@ export const Avatar = styled.div`
     display: flex;
     flex-direction: column;
 
-    > strong {
+    > strong a {
       font-weight: 700;
       text-align: right;
+      text-decoration: none;
+      color: ${({ theme }) => theme.COLORS.WHITE};
+      font-size: 14px;
     }
 
     > a {
@@ -35,7 +41,7 @@ export const Avatar = styled.div`
     }
   }
 
-  > img {
+  > a img {
     height: 64px;
     width: 64px;
     border-radius: 50%;
