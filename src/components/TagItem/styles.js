@@ -13,8 +13,6 @@ export const Container = styled.div`
 
   border: ${({ theme, isNew }) => isNew ? `2px dashed ${theme.COLORS.FONT_PLCHDR}` : `none`};
 
-  margin-right: 8px;
-
 
   > button {
     background: none;

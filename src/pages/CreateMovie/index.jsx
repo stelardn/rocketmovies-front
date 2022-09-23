@@ -18,8 +18,10 @@ export function CreateMovie() {
         <TextButton title="Voltar" icon={FiArrowLeft} />
         <h2>Novo filme</h2>
         <form>
-          <Input placeholder="Título" />
-          <Input placeholder="Sua nota (de 0 a 5)" />
+          <div className="first-line">
+            <Input placeholder="Título" />
+            <Input placeholder="Sua nota (de 0 a 5)" />
+          </div>
           <TextArea placeholder="Observações" rows={6} />
         </form>
         <footer>
