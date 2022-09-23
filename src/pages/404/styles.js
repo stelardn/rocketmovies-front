@@ -8,7 +8,6 @@ export const Container = styled.div`
 
   background: url(${backgroundImg}) no-repeat center center;
   background-size: cover;
-  /* background-color: black; */
 
   display: flex;
   flex-direction: column;
@@ -18,10 +17,16 @@ export const Container = styled.div`
    > h1 {
     margin-top: -100px;
     font-size: 36px;
-    text-shadow: gray 3px 1px 6px;
+   }
+
+   > h3 {
+    margin-top: 16px;
+    font-weight: 400;
+    color: ${({ theme }) => theme.COLORS.FONT_GRAY};
+    font-size: 20px;
    }
 
    > a {
-    margin-top: 24px;
+    margin-top: 40px;
    }
 `

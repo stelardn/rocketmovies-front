@@ -5,7 +5,8 @@ import { TextButton } from '../../components/TextButton';
 export function NotFound() {
   return (
     <Container>
-      <h1>Ops... Não há nada aqui.</h1>
+      <h1>Página não encontrada.</h1>
+      <h3>Não há nada aqui.</h3>
       <TextButton title="Voltar para o início" to='/' />
     </Container>
   )
