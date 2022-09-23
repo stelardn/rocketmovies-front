@@ -30,6 +30,10 @@ export function CreateMovie() {
             <TagItem value="React" />
             <TagItem placeholder="Novo marcador" isNew />
           </div>
+          <div className="buttons">
+            <Button title="Excluir filme" />
+            <Button title="Salvar alterações" />
+          </div>
         </footer>
       </main>
     </Container>

@@ -36,8 +36,21 @@ export const Container = styled.div`
       display: flex;
       gap: 24px;
       flex-wrap:wrap;
+
+      border-radius: 8px;
       background-color: ${({ theme }) => theme.COLORS.BACKGROUND_BLACK};
       padding: 16px;
+    }
+
+    .buttons {
+      margin-top: 40px;
+      display: flex;
+      gap: 40px;
+
+      > button:first-of-type {
+        background-color: ${({ theme }) => theme.COLORS.BACKGROUND_BLACK};
+        color: ${({ theme }) => theme.COLORS.PINK};
+      }
     }
   }
 
