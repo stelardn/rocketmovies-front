@@ -8,6 +8,7 @@ import { Input } from "../../components/Input";
 import { TextArea } from "../../components/TextArea";
 import { Button } from "../../components/Button";
 import { TagItem } from "../../components/TagItem";
+import { Tag } from "../../components/Tag";
 
 export function CreateMovie() {
   return (

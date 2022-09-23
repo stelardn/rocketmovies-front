@@ -4,12 +4,9 @@ import { FiX, FiPlus } from "react-icons/fi";
 export function TagItem({ value, onClick, isNew, ...rest }) {
   return (
     <Container isNew={isNew} >
-      <input
-        {...rest}
-        value={value}
-        onClick={onClick}
-        readOnly={!isNew}
-      />
+
+      {isNew ? <input {...rest} type="text" value={value} onClick={onClick} /> : <p>{value}</p>}
+
       <button
         className={
           isNew ? "add-tag" : "remove-tag"
