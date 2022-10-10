@@ -32,11 +32,32 @@ function AuthProvider({ children }) {
 
   }
 
+  // Logs the user out of the session
   function signOut() {
     localStorage.removeItem("@rocketmovies:user");
     localStorage.removeItem("@rocketmovies:token");
 
     setData({});
+  }
+
+  // Takes the information inserted by the user, sends a requisition to the API 
+  async function updateProfile(user) {
+    try {
+      await api.put("/users", user);
+      localStorage.setItem("@rocketmovies:user", JSON.stringify(user));
+      setData({
+        user: user,
+        token: data.token
+      });
+
+      alert("Dados atualizados com sucesso!");
+    } catch (error) {
+      if (error.response) {
+        return alert(error.response.data.message);
+      } else {
+        return alert("Não foi possível atualizar os dados. Tente novamente.")
+      }
+    }
   }
 
   // Seeks for user authentication data on local storage once the page is rendered
@@ -55,6 +76,7 @@ function AuthProvider({ children }) {
       value={{
         signIn,
         signOut,
+        updateProfile,
         user: data.user
       }}
     >
