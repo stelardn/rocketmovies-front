@@ -5,12 +5,13 @@ export function TagItem({ value, onClick, isNew, ...rest }) {
   return (
     <Container isNew={isNew} >
 
-      {isNew ? <input {...rest} type="text" value={value} onClick={onClick} /> : <p>{value}</p>}
+      {isNew ? <input {...rest} type="text" value={value} /> : <p>{value}</p>}
 
       <button
         className={
           isNew ? "add-tag" : "remove-tag"
         }
+        onClick={onClick}
       >
         {isNew ? <FiPlus /> : <FiX />}
       </button>

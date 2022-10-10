@@ -18,6 +18,13 @@ export function Profile() {
   const [oldPassword, setOldPassword] = useState(null);
   const [newPassword, setNewPassword] = useState(null);
 
+  // continuar
+
+  function handleUpdateAvatar(event) {
+    const file = event.target.file[0];
+
+    const imagePreview = URL.createObjectURL(file);
+  }
 
   function handleUpdateProfile() {
     const userUpdate = {

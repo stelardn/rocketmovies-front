@@ -1,5 +1,7 @@
 import { Container } from "./styles";
 
+import { useState, useEffect } from "react";
+
 import { FiArrowLeft } from "react-icons/fi";
 
 import { Header } from "../../components/Header";
@@ -11,11 +13,28 @@ import { TagItem } from "../../components/TagItem";
 import { Tag } from "../../components/Tag";
 
 export function CreateMovie() {
+  const [tags, setTags] = useState([]);
+  const [newTag, setNewTag] = useState("");
+
+  function handleAddTag(tag) {
+    setTags(previousTags => [...previousTags, tag]);
+    setNewTag("");
+  }
+
+  function handleRemoveTag(removedTag) {
+    const filteredTags = tags.filter(tag => tag !== removedTag);
+    setTags(filteredTags);
+  }
+
   return (
     <Container>
       <Header />
       <main>
-        <TextButton title="Voltar" icon={FiArrowLeft} to='/' />
+        <TextButton
+          title="Voltar"
+          icon={FiArrowLeft}
+          to='/'
+        />
         <h2>Novo filme</h2>
         <form>
           <div className="first-line">
@@ -27,8 +46,23 @@ export function CreateMovie() {
         <footer>
           <h3>Marcadores</h3>
           <div className="tags">
-            <TagItem value="React" />
-            <TagItem placeholder="Novo marcador" isNew />
+            {
+              tags.map((tag, index) => (
+                <TagItem
+                  value={tag}
+                  key={String(index)}
+                  onClick={() => handleRemoveTag(tag)}
+                />
+
+              ))
+            }
+            <TagItem
+              isNew
+              placeholder="Novo marcador"
+              value={newTag}
+              onChange={e => setNewTag(e.target.value)}
+              onClick={() => handleAddTag(newTag)}
+            />
           </div>
           <div className="buttons">
             <Button title="Excluir filme" />
