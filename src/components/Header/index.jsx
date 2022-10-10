@@ -1,9 +1,24 @@
 import { Container, Avatar } from "./styles";
+
 import { Input } from "../Input";
+import { TextButton } from "../TextButton";
+
+import { authUse } from "../../hooks/auth";
+
+import { useNavigate } from "react-router-dom";
 
 import { Link } from "react-router-dom";
 
 export function Header() {
+
+  const { signOut } = authUse();
+  const navigate = useNavigate();
+
+  function handleSignOut() {
+    signOut();
+    navigate("/");
+  }
+
   return (
     <Container>
       <Link to="/">RocketMovies</Link>
@@ -15,7 +30,11 @@ export function Header() {
               Stéfany Larissa
             </Link>
           </strong>
-          <a>Sair</a>
+          <button
+            onClick={handleSignOut}
+          >
+            Sair
+          </button>
         </p>
         <Link to="/profile">
           <img

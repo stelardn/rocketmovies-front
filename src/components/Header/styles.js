@@ -35,9 +35,16 @@ export const Avatar = styled.div`
       font-size: 14px;
     }
 
-    > a {
+    > button {
       color: ${({ theme }) => theme.COLORS.FONT_PLCHDR};
+      background: none;
+      border: none;
       text-align: right;
+      cursor: pointer;
+
+      &:hover {
+        filter: brightness(1.25);
+      }
     }
   }
 

@@ -7,7 +7,7 @@ const AuthContext = createContext({});
 
 function AuthProvider({ children }) {
 
-  const [data, setData] = useState("");
+  const [data, setData] = useState({});
 
   // Connects to the API using email and password inserted by the user and creates a new session
   async function signIn({ email, password }) {
@@ -15,7 +15,7 @@ function AuthProvider({ children }) {
       const response = await api.post("/sessions", { email, password });
 
       const { user, token } = response.data;
-      api.defaults.headers.common['Authorization'] = `Bearer ${token}`
+      api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
 
       setData({ user, token });
 
@@ -32,13 +32,20 @@ function AuthProvider({ children }) {
 
   }
 
+  function signOut() {
+    localStorage.removeItem("@rocketmovies:user");
+    localStorage.removeItem("@rocketmovies:token");
+
+    setData({});
+  }
+
   // Seeks for user authentication data on local storage once the page is rendered
   useEffect(() => {
     const savedUser = localStorage.getItem("@rocketmovies:user");
     const savedToken = localStorage.getItem("@rocketmovies:token");
 
     if (savedUser && savedToken) {
-      setData({ user: savedUser, token: savedToken });
+      setData({ user: JSON.parse(savedUser), token: savedToken });
       api.defaults.headers.common['Authorization'] = `Bearer ${savedToken}`;
     }
   }, []);
@@ -47,6 +54,7 @@ function AuthProvider({ children }) {
     <AuthContext.Provider
       value={{
         signIn,
+        signOut,
         user: data.user
       }}
     >
