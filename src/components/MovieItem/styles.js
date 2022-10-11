@@ -8,10 +8,11 @@ export const Container = styled.div`
   
   background-color: ${({ theme }) => theme.COLORS.BACKGROUND_MOVIES};
 
-  h3 {
+  a {
     font-size: 24px;
     font-weight: 700;
     margin-bottom: 8px;
+    cursor: pointer;
   }
 
   p {

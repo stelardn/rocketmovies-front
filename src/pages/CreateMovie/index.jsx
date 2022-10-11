@@ -44,6 +44,10 @@ export function CreateMovie() {
         tags
       }
 
+      if (newTag) {
+        return alert("Você preencheu uma tag, mas não a adicionou. Adicione-a ou deixe o campo em branco para prosseguir.")
+      }
+
       const response = await api.post("/movie_notes", movieNote);
       navigate("/");
 
@@ -74,7 +78,7 @@ export function CreateMovie() {
               onChange={e => setTitle(e.target.value)}
             />
             <Input
-              placeholder="Sua nota (de 0 a 5)"
+              placeholder="Sua nota (de 1 a 5)"
               onChange={e => setRating(Number(e.target.value))}
             />
           </div>

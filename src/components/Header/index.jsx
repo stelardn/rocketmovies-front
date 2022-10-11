@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 
 import { Link } from "react-router-dom";
 
-export function Header() {
+export function Header({ onChange }) {
 
   const { signOut } = authUse();
   const navigate = useNavigate();
@@ -22,7 +22,10 @@ export function Header() {
   return (
     <Container>
       <Link to="/">RocketMovies</Link>
-      <Input placeholder="Pesquise pelo título" />
+      <Input
+        placeholder="Pesquise pelo título"
+        onChange={onChange}
+      />
       <Avatar>
         <p>
           <strong>
