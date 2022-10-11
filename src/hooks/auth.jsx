@@ -41,7 +41,16 @@ function AuthProvider({ children }) {
   }
 
   // Takes the information inserted by the user, sends a requisition to the API 
-  async function updateProfile(user) {
+  async function updateProfile({ user, avatarFile }) {
+    if (avatarFile) {
+      const fileUploadForm = new FormData();
+      fileUploadForm.append("avatar", avatarFile);
+
+      // console.log(avatarFile);
+      const response = await api.patch("/users/avatar", fileUploadForm);
+      user.avatar = response.data.avatar;
+    }
+
     try {
       await api.put("/users", user);
       localStorage.setItem("@rocketmovies:user", JSON.stringify(user));

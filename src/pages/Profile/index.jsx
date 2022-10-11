@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+import { api } from "../../services/api";
+
 import { Container, Avatar } from "./styles";
 
 import { FiArrowLeft, FiCamera, FiUser, FiMail, FiLock } from "react-icons/fi";
@@ -9,6 +11,7 @@ import { authUse } from "../../hooks/auth";
 import { Input } from "../../components/Input";
 import { Button } from "../../components/Button";
 import { TextButton } from "../../components/TextButton";
+import avatarPlaceholder from "../../assets/avatar_placeholder.svg";
 
 export function Profile() {
   const { updateProfile, user } = authUse();
@@ -18,12 +21,22 @@ export function Profile() {
   const [oldPassword, setOldPassword] = useState(null);
   const [newPassword, setNewPassword] = useState(null);
 
-  // continuar
+
+  const initialAvatarURL = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : avatarPlaceholder;
+
+  // State that receives the file whose URL will be used for viewing the image and which will be sent in the form of the HTTP request
+  const [avatarFile, setAvatarFile] = useState(null);
+
+  // State that keeps the URL of the file, for image view
+  const [avatarURL, setAvatarURL] = useState(initialAvatarURL);
+
 
   function handleUpdateAvatar(event) {
-    const file = event.target.file[0];
+    const file = event.target.files[0];
+    setAvatarFile(file);
 
-    const imagePreview = URL.createObjectURL(file);
+    const newAvatarURL = URL.createObjectURL(file);
+    setAvatarURL(newAvatarURL);
   }
 
   function handleUpdateProfile() {
@@ -36,7 +49,7 @@ export function Profile() {
 
     const updatedUser = Object.assign(user, userUpdate);
 
-    updateProfile(updatedUser);
+    updateProfile({ user: updatedUser, avatarFile });
   }
 
   return (
@@ -45,11 +58,18 @@ export function Profile() {
         <TextButton title="Voltar" icon={FiArrowLeft} to='/' />
       </header>
       <Avatar>
-        <img src="https://github.com/stelardn.png" alt="Imagem do usuário" />
+        <img
+          src={avatarURL}
+          alt="Imagem do usuário"
+        />
         <label htmlFor="camera">
           <FiCamera />
         </label>
-        <input id="camera" type="file" />
+        <input
+          id="camera"
+          type="file"
+          onChange={handleUpdateAvatar}
+        />
       </Avatar>
       <form>
         <Input
