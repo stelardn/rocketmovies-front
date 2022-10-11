@@ -12,8 +12,8 @@ export function MovieNote({ data, onClick, ...rest }) {
       {
         data.tags &&
         <footer>
-          {data.tags.map(tag =>
-            <Tag title={tag} key={String(tag.id)} />
+          {data.tags.map((tag, index) =>
+            <Tag title={tag} key={String(index)} />
           )}
         </footer>
       }
