@@ -6,13 +6,18 @@ import { TextButton } from "../TextButton";
 import { authUse } from "../../hooks/auth";
 
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 import { Link } from "react-router-dom";
 
+import { api } from "../../services/api";
+
 export function Header({ onChange }) {
 
-  const { signOut } = authUse();
+  const { signOut, user } = authUse();
   const navigate = useNavigate();
+
+  const [avatarURL, setAvatarURL] = useState(`${api.defaults.baseURL}/files/${user.avatar}`);
 
   function handleSignOut() {
     signOut();
@@ -30,7 +35,7 @@ export function Header({ onChange }) {
         <p>
           <strong>
             <Link to="/profile">
-              Stéfany Larissa
+              {user.name}
             </Link>
           </strong>
           <button
@@ -41,8 +46,8 @@ export function Header({ onChange }) {
         </p>
         <Link to="/profile">
           <img
-            alt="Imagem do usuário"
-            src="https://github.com/stelardn.png"
+            alt={`Imagem de ${user.name}`}
+            src={avatarURL}
           />
         </Link>
       </Avatar>

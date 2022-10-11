@@ -22,6 +22,7 @@ export const Avatar = styled.div`
   display: flex;
   align-items: center;
   gap: 9px;
+
   
   > p {
     display: flex;
