@@ -61,6 +61,18 @@ export function CreateMovie() {
     }
   }
 
+  function handleRemoveNote() {
+    const confirmDelete = confirm("Deseja mesmo limpar as informações?");
+
+    if (confirmDelete) {
+      setTitle("");
+      setRating("");
+      setDescription("");
+      setTags([]);
+      setNewTag("");
+    }
+  }
+
   return (
     <Container>
       <Header />
@@ -75,14 +87,17 @@ export function CreateMovie() {
           <div className="first-line">
             <Input
               placeholder="Título"
+              value={title}
               onChange={e => setTitle(e.target.value)}
             />
             <Input
+              value={rating}
               placeholder="Sua nota (de 1 a 5)"
               onChange={e => setRating(Number(e.target.value))}
             />
           </div>
           <TextArea
+            value={description}
             placeholder="Observações"
             rows={6}
             onChange={e => setDescription(e.target.value)}
@@ -112,6 +127,7 @@ export function CreateMovie() {
           <div className="buttons">
             <Button
               title="Excluir filme"
+              onClick={handleRemoveNote}
             />
             <Button
               title="Salvar alterações"
