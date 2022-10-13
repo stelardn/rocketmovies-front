@@ -1,5 +1,13 @@
 import { Container } from "./styles";
 
+import { useEffect, useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+
+import { api } from "../../services/api";
+import { authUse } from "../../hooks/auth";
+
+import avatarPlaceholder from "../../assets/avatar_placeholder.svg";
+
 import { Header } from "../../components/Header";
 import { TextButton } from "../../components/TextButton";
 import { Rating } from "../../components/Rating";
@@ -7,10 +15,6 @@ import { Tag } from "../../components/Tag";
 
 
 import { FiArrowLeft, FiClock } from "react-icons/fi";
-import { useParams } from "react-router-dom";
-import { api } from "../../services/api";
-import { useEffect, useState } from "react";
-import { authUse } from "../../hooks/auth";
 
 export function MoviePreview() {
 
@@ -18,13 +22,17 @@ export function MoviePreview() {
   const [details, setDetails] = useState();
 
   const { user } = authUse();
+  const navigate = useNavigate();
 
-  const [avatarURL, setAvatarURL] = useState(`${api.defaults.baseURL}/files/${user.avatar}`);
+  const [avatarURL, setAvatarURL] = useState(user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : avatarPlaceholder);
+
+  function handleBack() {
+    navigate(-1);
+  }
 
   useEffect(() => {
     async function fetchNoteDetails() {
       const response = await api.get(`/movie_notes/${params.id}`);
-      console.log(response.data);
       setDetails(response.data);
     }
 
@@ -37,7 +45,11 @@ export function MoviePreview() {
       {
         details &&
         <main>
-          <TextButton icon={FiArrowLeft} title="Voltar" to='/' />
+          <TextButton
+            icon={FiArrowLeft}
+            title="Voltar"
+            onClick={handleBack}
+          />
           <div className="title">
             <h1>
               {details.title}
@@ -49,7 +61,7 @@ export function MoviePreview() {
           <div className="info">
             <img src={avatarURL} />
             <p>
-              {user.name}
+              Por {user.name}
             </p>
             <FiClock />
             <p>

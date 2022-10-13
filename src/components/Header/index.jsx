@@ -12,12 +12,14 @@ import { Link } from "react-router-dom";
 
 import { api } from "../../services/api";
 
+import avatarPlaceholder from "../../assets/avatar_placeholder.svg";
+
 export function Header({ onChange }) {
 
   const { signOut, user } = authUse();
   const navigate = useNavigate();
 
-  const [avatarURL, setAvatarURL] = useState(`${api.defaults.baseURL}/files/${user.avatar}`);
+  const [avatarURL, setAvatarURL] = useState(user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : avatarPlaceholder);
 
   function handleSignOut() {
     signOut();

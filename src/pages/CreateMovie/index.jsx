@@ -1,7 +1,9 @@
 import { Container } from "./styles";
 
 import { useState, useEffect } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
+import { api } from "../../services/api";
 
 import { FiArrowLeft } from "react-icons/fi";
 
@@ -13,8 +15,6 @@ import { Button } from "../../components/Button";
 import { TagItem } from "../../components/TagItem";
 import { Tag } from "../../components/Tag";
 
-import { api } from "../../services/api";
-
 export function CreateMovie() {
   const navigate = useNavigate();
 
@@ -22,7 +22,7 @@ export function CreateMovie() {
   const [newTag, setNewTag] = useState("");
 
   const [title, setTitle] = useState("");
-  const [rating, setRating] = useState(5);
+  const [rating, setRating] = useState(null);
   const [description, setDescription] = useState("");
 
   function handleAddTag(tag) {
@@ -73,6 +73,10 @@ export function CreateMovie() {
     }
   }
 
+  function handleBack() {
+    navigate(-1);
+  }
+
   return (
     <Container>
       <Header />
@@ -80,7 +84,7 @@ export function CreateMovie() {
         <TextButton
           title="Voltar"
           icon={FiArrowLeft}
-          to='/'
+          onClick={handleBack}
         />
         <h2>Novo filme</h2>
         <form>

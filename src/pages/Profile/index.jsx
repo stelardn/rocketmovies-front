@@ -1,20 +1,22 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
+import { authUse } from "../../hooks/auth";
 import { api } from "../../services/api";
 
 import { Container, Avatar } from "./styles";
 
 import { FiArrowLeft, FiCamera, FiUser, FiMail, FiLock } from "react-icons/fi";
 
-import { authUse } from "../../hooks/auth";
+import avatarPlaceholder from "../../assets/avatar_placeholder.svg";
 
 import { Input } from "../../components/Input";
 import { Button } from "../../components/Button";
 import { TextButton } from "../../components/TextButton";
-import avatarPlaceholder from "../../assets/avatar_placeholder.svg";
 
 export function Profile() {
   const { updateProfile, user } = authUse();
+  const navigate = useNavigate();
 
   const [name, setName] = useState(user.name);
   const [email, setEmail] = useState(user.email);
@@ -52,10 +54,18 @@ export function Profile() {
     updateProfile({ user: updatedUser, avatarFile });
   }
 
+  function handleBack() {
+    navigate(-1);
+  }
+
   return (
     <Container>
       <header>
-        <TextButton title="Voltar" icon={FiArrowLeft} to='/' />
+        <TextButton
+          title="Voltar"
+          icon={FiArrowLeft}
+          onClick={handleBack}
+        />
       </header>
       <Avatar>
         <img
