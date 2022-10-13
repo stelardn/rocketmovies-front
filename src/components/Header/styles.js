@@ -7,7 +7,7 @@ export const Container = styled.div`
   display: flex; 
   align-items: center;
 
-  justify-content: space-between;
+  justify-content: stretch;
   gap: 64px;
 
   > a {
@@ -22,6 +22,8 @@ export const Avatar = styled.div`
   display: flex;
   align-items: center;
   gap: 9px;
+
+  justify-content: flex-end;
 
   
   > p {
