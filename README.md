@@ -5,6 +5,8 @@ It consumes Rocketmovies API, available at https://github.com/stelardn/movienote
 
 This project is a part of Rocketseat Explorer Web Fullstack course.
 
+Deploy: https://rocket-movies10.netlify.app/
+
 
 
 ## Instructions
