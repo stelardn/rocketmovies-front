@@ -38,7 +38,7 @@ export const Form = styled.form`
     margin: 8px 0 24px;
   }
 
-  > a:last-child {
+  > button:last-child {
     margin-top: 42px;
     align-self: center;
   }

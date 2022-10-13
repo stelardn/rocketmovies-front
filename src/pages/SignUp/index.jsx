@@ -1,11 +1,11 @@
-import { Container, Form, Background } from "./styles";
-
-import { FiMail, FiUser, FiLock, FiArrowLeft } from 'react-icons/fi';
-
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { api } from '../../services/api';
+
+import { Container, Form, Background } from "./styles";
+
+import { FiMail, FiUser, FiLock, FiArrowLeft } from 'react-icons/fi';
 
 import { Input } from '../../components/Input';
 import { TextButton } from "../../components/TextButton";
@@ -31,6 +31,10 @@ export function SignUp() {
 
       return alert("Não foi possível completar o cadastro. Tente novamente.");
     }
+  }
+
+  function handleLogin() {
+    navigate("/");
   }
 
   return (
@@ -61,7 +65,8 @@ export function SignUp() {
         <TextButton
           icon={FiArrowLeft}
           title="Voltar para o login"
-          to="/" />
+          onClick={handleLogin}
+        />
       </Form>
       <Background />
     </Container>
