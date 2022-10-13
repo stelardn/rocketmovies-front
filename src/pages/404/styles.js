@@ -26,7 +26,7 @@ export const Container = styled.div`
     font-size: 20px;
    }
 
-   > a {
+   > button {
     margin-top: 40px;
    }
 `
